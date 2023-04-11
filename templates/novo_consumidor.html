@@ -1,0 +1,64 @@
+
+{% extends "base.html" %}
+{% block title %}Novo Cadastro{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="container-login">
+      <div class="wrap-login">
+          <form action="{{url_for('criar')}}" class="login-form" method="POST">
+              <span class="login-form-title">
+                  Faça seu cadastro de consumidor
+              </span>
+
+              <div class="wrap-input margin-top-35 margin-bottom-35">
+                  <input class="input-form" type="text" id="nome" name="nome" autocomplete="off">
+                  <span class="focus-input-form" data-placeholder="Nome Completo"></span>
+              </div>
+
+              <div class="wrap-input margin-top-35 margin-bottom-35">
+                  <input class="input-form" type="text" id="cpf" name="cpf" autocomplete="off">
+                  <span class="focus-input-form" data-placeholder="CPF"></span>
+              </div>
+
+              <div class="wrap-input margin-top-35 margin-bottom-35">
+                  <input class="input-form" type="text" id="endereco" name="endereco" autocomplete="off">
+                  <span class="focus-input-form" data-placeholder="Endereço"></span>
+              </div>
+
+              <H1>Acesso</H1>
+              <br>
+
+              <div class="wrap-input margin-top-35 margin-bottom-35">
+                  <input class="input-form" type="text" id="usuario" name="usuario" autocomplete="off">
+                  <span class="focus-input-form" data-placeholder="Usuário"></span>
+              </div>
+
+              <div class="wrap-input margin-bottom-35">
+                  <input class="input-form" type="password" id="senha" name="senha">
+                  <span class="focus-input-form" data-placeholder="Senha"></span>
+              </div>
+
+              <div class="wrap-input margin-top-35 margin-bottom-35">
+                  <input class="input-form" type="email" id="em" name="email" autocomplete="off">
+                  <span class="focus-input-form" data-placeholder="E-mail"></span>
+              </div>
+
+              <div class="container-login-form-btn">
+                  <button type="submit" class="login-form-btn">
+                      Salvar
+                  </button>
+              </div>
+
+          </form>
+      </div>
+      <img src="static/login.png" width="300" height="300" class="margin-left-50" />
+  </div>
+</div>
+{% endblock %}

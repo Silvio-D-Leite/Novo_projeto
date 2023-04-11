@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Novo cadastro{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+
+      <div class="container">
+          <div class="container-login">
+              <div class="wrap-login">
+                  <form class="login-form">
+                      <span class="login-form-title">
+                          Faça seu cadastro de Produtor
+                      </span>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="text" name="rsocial" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="Razao Social"></span>
+                      </div>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="cnpj" name="cnpj" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="CNPJ"></span>
+                      </div>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="text" name="endereco" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="Endereço"></span>
+                      </div>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="text" name="site" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="Site"></span>
+                      </div>
+
+                      <H1>Acesso</H1>
+                      <br>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="text" name="user" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="Usuário"></span>
+                      </div>
+
+                      <div class="wrap-input margin-bottom-35">
+                          <input class="input-form" type="password" name="password">
+                          <span class="focus-input-form" data-placeholder="Senha"></span>
+                      </div>
+
+                      <div class="wrap-input margin-top-35 margin-bottom-35">
+                          <input class="input-form" type="email" name="email" autocomplete="off">
+                          <span class="focus-input-form" data-placeholder="E-mail"></span>
+                      </div>
+
+                      <div class="container-login-form-btn">
+                          <button class="login-form-btn">
+                              Login
+                          </button>
+                      </div>
+                  </form>
+              </div>
+              <img src="static/login.png" width="300" height="300" class="margin-left-50" />
+          </div>
+      </div>
+{% endblock %}

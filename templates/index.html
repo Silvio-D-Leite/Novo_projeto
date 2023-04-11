@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="container-login">
+
+            <div class="wrap-login">
+                <span class="login-form-title">
+                    Faça o login
+                </span>
+                <form action="" method="POST">
+                    
+                    <div class="form-field wrap-input margin-top-35 margin-bottom-35">
+ 
+                        {{ form.email(class="input-form", placeholder="Seu E-mail" )}}
+                        {% if form.errors.email %}
+                        <div class="alert alert-danger" role="alert">
+                            {{form.erros.email}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-field wrap-input margin-bottom-35">
+                        {{ form.csrf_token}}
+                        {{ form.senha(class="input-form", placeholder="Senha")}}
+                        {% if form.errors.senha %}
+                        <div class="alert alert-danger" role="alert">
+                            {{form.erros.senha}}
+                        </div>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="login-form-btn consumer">Entrar</button>
+                    <ul class="login-utils">
+						<li class="margin-bottom-8 margin-top-8">
+							<span class="text1">
+								Esqueceu sua
+							</span>
+
+							<a href="telas/recover.html" class="text2">
+								senha?
+							</a>
+						</li>
+					</ul>
+                </form>
+                <div class="container-login-form-btn">
+                    <a class="login-form-btn consumer" href="{{url_for('novo_consumidor')}}">
+                        Criar conta de Consumidor
+                    </a>
+                </div>
+
+                <div class="container-login-form-btn">
+                    <a class="login-form-btn seller" href="telas/newseller.html">
+                        Criar conta de Produtor
+                    </a>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='login.png') }}" width="300" height="300" class="margin-left-50" />
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
