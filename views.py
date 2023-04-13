@@ -9,6 +9,7 @@ def load_user(id):
     return Consumidor.query.filter_by(id=id).first()
 
 
+
 #----------------------INDEX-------------------------#
 
 @app.route('/', methods=["POST", "GET" ])
@@ -47,7 +48,7 @@ def novo_consumidor():
     return render_template('novo_consumidor.html')
 
 
-
+# Criar consumidor novo
 @app.route("/criar", methods=['POST', 'GET'])
 def criar():
     if request.method == 'POST':
@@ -57,13 +58,18 @@ def criar():
         usuario = request.form['usuario']
         senha = request.form['senha']
         email = request.form['email']
-        new_consumidor = Consumidor(nome=nome, cpf=cpf, endereco=endereco, usuario=usuario, \
-                                    senha=senha, email=email )
-        db.session.add(new_consumidor)
-        db.session.commit()
-        return redirect(url_for('loja'))
-    else:
-        return redirect(url_for('index'))
+        consumidor = Consumidor.query.filter_by(usuario=usuario).first()
+        if consumidor:
+            flash("Usuário já existe.")
+            return redirect(url_for('novo_consumidor'))
+        else:
+            new_consumidor = Consumidor(nome=nome, cpf=cpf, endereco=endereco, usuario=usuario, senha=senha, email=email )
+            db.session.add(new_consumidor)
+            db.session.commit()
+            flash("Usuário cadastrado com sucesso.")
+            return redirect(url_for('loja'))
+
+
 
 
 

@@ -61,4 +61,19 @@
       <img src="static/login.png" width="300" height="300" class="margin-left-50" />
   </div>
 </div>
+
+<script>
+    let inputs = document.getElementsByClassName('input-form');
+    for (let input of inputs) {
+        input.addEventListener("blur", function() {
+            if(input.value.trim() != ""){
+                input.classList.add("has-val");
+            } else {
+                input.classList.remove("has-val");
+            }
+        });
+    }
+</script>
+
+
 {% endblock %}

@@ -2,13 +2,34 @@
 <html lang="pt-br">
 <head>
     {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>{% block title %}{% endblock %} - Organic Food</title>
     {% endblock %}
 </head>
 
 <body>
-    <div>{% block content %}{% endblock %}</div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-warning ">
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <p style="text-align: center;"> {{ message }} </p>
+                    {% endfor %}
+                </ul>
+            </div>  
+        {% endif %}
+    {% endwith %} 
+    
+    <div>{% block content %}
+        
+        
+
+        
+        
+        {% endblock %}</div>
     
     
     <div id="footer">
